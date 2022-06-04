@@ -3,10 +3,10 @@ import { ethers } from "ethers";
 import * as erc721 from "./abi/erc721";
 import { Contract } from "./model";
  
-export const CHAIN_NODE = "wss://wss.api.moonriver.moonbeam.network";
+export const CHAIN_NODE = "wss://astar.api.onfinality.io/public-ws";
 
 export const contract = new ethers.Contract(
-  "0xb654611f84a8dc429ba3cb4fda9fad236c505a1a",
+  "0xd59fC6Bfd9732AB19b03664a45dC29B8421BDA9a",
   erc721.abi,
   new ethers.providers.WebSocketProvider(CHAIN_NODE)
 );
@@ -14,9 +14,9 @@ export const contract = new ethers.Contract(
 export function createContractEntity(): Contract {
   return new Contract({
     id: contract.address,
-    name: "Moonsama",
-    symbol: "MSAMA",
-    totalSupply: 1000n,
+    name: "AstarDegens",
+    symbol: "DEGEN",
+    totalSupply: 10000n,
   });
 }
  

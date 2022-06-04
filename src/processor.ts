@@ -13,12 +13,14 @@ processor.setBatchSize(500);
 
 processor.setDataSource({
   chain: CHAIN_NODE,
-  archive: lookupArchive("moonriver")[0].url,
+  archive: lookupArchive("astar")[0].url,
 });
 
-processor.setTypesBundle("moonbeam");
+processor.setTypesBundle("astar");
 
-processor.addPreHook({ range: { from: 0, to: 0 } }, async (ctx) => {
+processor.setBlockRange({from:1163310, to: 1165350})
+
+processor.addPreHook({ range: { from: 1163314, to: 1165350 } }, async (ctx) => {
   await ctx.store.save(createContractEntity());
 });
 
