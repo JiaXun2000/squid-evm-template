@@ -2,8 +2,8 @@ import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_} f
 import * as marshal from "./marshal"
 
 @Entity_()
-export class Transfer {
-  constructor(props?: Partial<Transfer>) {
+export class TVLChart {
+  constructor(props?: Partial<TVLChart>) {
     Object.assign(this, props)
   }
 
@@ -17,8 +17,11 @@ export class Transfer {
   to!: string
 
   @Column_("numeric", {transformer: marshal.bigintTransformer, nullable: false})
-  amount!: bigint
+  currentTimestamp!: bigint
 
   @Column_("numeric", {transformer: marshal.bigintTransformer, nullable: false})
-  timestamp!: bigint
+  amount!: bigint
+
+  @Column_("numeric", {nullable: false})
+  value!: number
 }
